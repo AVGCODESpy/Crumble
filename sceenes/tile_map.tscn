@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://d3a3nwhb305eb"]
+
+[ext_resource type="Texture2D" uid="uid://bxrsywlvm6xjj" path="res://sprites/tilemap.png" id="1_25c7n"]
+[ext_resource type="Script" uid="uid://c01kpkbxi4ohl" path="res://code/tile_map.gd" id="2_xeddh"]
+[ext_resource type="PackedScene" uid="uid://bmbfiig5bptt" path="res://camera/camera_2d.tscn" id="3_cslo3"]
+[ext_resource type="PackedScene" uid="uid://dandvbpdej88" path="res://sceenes/hud.tscn" id="4_ledft"]
+[ext_resource type="PackedScene" uid="uid://0jocxigb1vlj" path="res://sceenes/start_scrn.tscn" id="5_wibar"]
+[ext_resource type="PackedScene" uid="uid://di8bvoyvbsnt1" path="res://sceenes/howToplay.tscn" id="6_xeddh"]
+[ext_resource type="Texture2D" uid="uid://b7v1fy2rnevh1" path="res://sprites/explosion/frame_08_delay-0.1s.png" id="7_co04m"]
+[ext_resource type="PackedScene" uid="uid://sd5yaysdhbic" path="res://sceenes/settings.tscn" id="7_qoy2r"]
+[ext_resource type="Texture2D" uid="uid://56ulc3xfhux3" path="res://sprites/explosion/frame_09_delay-0.1s.png" id="8_knbgg"]
+[ext_resource type="Texture2D" uid="uid://bb6qjejdq541l" path="res://sprites/explosion/frame_10_delay-0.1s.png" id="9_aavio"]
+[ext_resource type="Texture2D" uid="uid://bgpu3igby5h3x" path="res://sprites/explosion/frame_11_delay-0.1s.png" id="10_v1yc4"]
+[ext_resource type="Texture2D" uid="uid://c17fau0rgquuy" path="res://sprites/explosion/frame_12_delay-0.1s.png" id="11_qoy2r"]
+[ext_resource type="Texture2D" uid="uid://bhb218fqw3dbk" path="res://sprites/explosion/frame_13_delay-0.1s.png" id="12_yt8d1"]
+[ext_resource type="Texture2D" uid="uid://by1ohhih2cigr" path="res://sprites/explosion/frame_14_delay-0.1s.png" id="13_3aidc"]
+[ext_resource type="Texture2D" uid="uid://bnc4urv3lbg6l" path="res://sprites/explosion/frame_15_delay-0.1s.png" id="14_x56po"]
+[ext_resource type="Texture2D" uid="uid://bk1xbbybh4pyg" path="res://sprites/explosion/frame_16_delay-0.1s.png" id="15_d4qpd"]
+[ext_resource type="Texture2D" uid="uid://con22ivm7eamu" path="res://sprites/explosion/frame_00_delay-0.1s.png" id="16_5qkao"]
+[ext_resource type="Texture2D" uid="uid://bxwhhwm61gxea" path="res://sprites/explosion/frame_01_delay-0.1s.png" id="17_54pnl"]
+[ext_resource type="Texture2D" uid="uid://ch2sw846sh0f8" path="res://sprites/explosion/frame_02_delay-0.1s.png" id="18_ktjy2"]
+[ext_resource type="Texture2D" uid="uid://c6wmh6qhdgy6h" path="res://sprites/explosion/frame_03_delay-0.1s.png" id="19_bbnpk"]
+[ext_resource type="Texture2D" uid="uid://df2f5kw7vym4s" path="res://sprites/explosion/frame_04_delay-0.1s.png" id="20_wkfvt"]
+[ext_resource type="Texture2D" uid="uid://mw1lfqpab4j0" path="res://sprites/explosion/frame_05_delay-0.1s.png" id="21_qgs7w"]
+[ext_resource type="Texture2D" uid="uid://d050085b7soq0" path="res://sprites/explosion/frame_06_delay-0.1s.png" id="22_gydj8"]
+[ext_resource type="Texture2D" uid="uid://bkm2c2qt58hr1" path="res://sprites/explosion/frame_07_delay-0.1s.png" id="23_velwu"]
+[ext_resource type="AudioStream" uid="uid://fa4mytx4b74t" path="res://sound/block_click.wav" id="25_3aidc"]
+[ext_resource type="AudioStream" uid="uid://rgxruxvofj1s" path="res://sound/click.wav" id="26_x56po"]
+[ext_resource type="AudioStream" uid="uid://eljurfy8gbx1" path="res://sound/destruction.wav" id="27_d4qpd"]
+[ext_resource type="AudioStream" uid="uid://bwiiy3neesyn6" path="res://sound/gameOver.wav" id="28_5qkao"]
+[ext_resource type="AudioStream" uid="uid://biufbmcdkmo14" path="res://sound/level_up.wav" id="29_54pnl"]
+[ext_resource type="AudioStream" uid="uid://cqcj1h3yvg3s1" path="res://sound/zephiramusic-lofi-reel-588906.ogg" id="30_x56po"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_25c7n"]
+texture = ExtResource("1_25c7n")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xftlc"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_25c7n")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5dg1o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_co04m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_knbgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_aavio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_v1yc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qoy2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yt8d1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3aidc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_x56po")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_d4qpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5qkao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_54pnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ktjy2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_bbnpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_wkfvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qgs7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_gydj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_velwu")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 5.0
+}]
+
+[node name="TileMap" type="TileMap" unique_id=1920326648]
+tile_set = SubResource("TileSet_xftlc")
+rendering_quadrant_size = 32
+format = 2
+layer_0/name = "background"
+layer_0/modulate = Color(1, 1, 1, 0.28235295)
+layer_0/tile_data = PackedInt32Array(65537, 131072, 0, 131073, 131072, 0, 196609, 131072, 0, 262145, 131072, 0, 327681, 131072, 0, 393217, 131072, 0, 458753, 131072, 0, 524289, 131072, 0, 589825, 131072, 0, 655361, 131072, 0, 720897, 131072, 0, 786433, 131072, 0, 851969, 131072, 0, 917505, 131072, 0, 983041, 131072, 0, 65538, 131072, 0, 131074, 131072, 0, 196610, 131072, 0, 262146, 131072, 0, 327682, 131072, 0, 393218, 131072, 0, 458754, 131072, 0, 524290, 131072, 0, 589826, 131072, 0, 655362, 131072, 0, 720898, 131072, 0, 786434, 131072, 0, 851970, 131072, 0, 917506, 131072, 0, 983042, 131072, 0, 65539, 131072, 0, 131075, 131072, 0, 196611, 131072, 0, 262147, 131072, 0, 327683, 131072, 0, 393219, 131072, 0, 458755, 131072, 0, 524291, 131072, 0, 589827, 131072, 0, 655363, 131072, 0, 720899, 131072, 0, 786435, 131072, 0, 851971, 131072, 0, 917507, 131072, 0, 983043, 131072, 0, 65540, 131072, 0, 131076, 131072, 0, 196612, 131072, 0, 262148, 131072, 0, 327684, 131072, 0, 393220, 131072, 0, 458756, 131072, 0, 524292, 131072, 0, 589828, 131072, 0, 655364, 131072, 0, 720900, 131072, 0, 786436, 131072, 0, 851972, 131072, 0, 917508, 131072, 0, 983044, 131072, 0, 65541, 131072, 0, 131077, 131072, 0, 196613, 131072, 0, 262149, 131072, 0, 327685, 131072, 0, 393221, 131072, 0, 458757, 131072, 0, 524293, 131072, 0, 589829, 131072, 0, 655365, 131072, 0, 720901, 131072, 0, 786437, 131072, 0, 851973, 131072, 0, 917509, 131072, 0, 983045, 131072, 0, 65542, 131072, 0, 131078, 131072, 0, 196614, 131072, 0, 262150, 131072, 0, 327686, 131072, 0, 393222, 131072, 0, 458758, 131072, 0, 524294, 131072, 0, 589830, 131072, 0, 655366, 131072, 0, 720902, 131072, 0, 786438, 131072, 0, 851974, 131072, 0, 917510, 131072, 0, 983046, 131072, 0, 65543, 131072, 0, 131079, 131072, 0, 196615, 131072, 0, 262151, 131072, 0, 327687, 131072, 0, 393223, 131072, 0, 458759, 131072, 0, 524295, 131072, 0, 589831, 131072, 0, 655367, 131072, 0, 720903, 131072, 0, 786439, 131072, 0, 851975, 131072, 0, 917511, 131072, 0, 983047, 131072, 0, 65544, 131072, 0, 131080, 131072, 0, 196616, 131072, 0, 262152, 131072, 0, 327688, 131072, 0, 393224, 131072, 0, 458760, 131072, 0, 524296, 131072, 0, 589832, 131072, 0, 655368, 131072, 0, 720904, 131072, 0, 786440, 131072, 0, 851976, 131072, 0, 917512, 131072, 0, 983048, 131072, 0, 65545, 131072, 0, 131081, 131072, 0, 196617, 131072, 0, 262153, 131072, 0, 327689, 131072, 0, 393225, 131072, 0, 458761, 131072, 0, 524297, 131072, 0, 589833, 131072, 0, 655369, 131072, 0, 720905, 131072, 0, 786441, 131072, 0, 851977, 131072, 0, 917513, 131072, 0, 983049, 131072, 0)
+layer_1/name = "voidLayer"
+layer_1/modulate = Color(1, 1, 1, 0.5647059)
+layer_1/z_index = 1
+layer_2/name = "boardLayer"
+layer_2/z_index = 2
+layer_3/name = "activeLayer"
+layer_3/z_index = 3
+script = ExtResource("2_xeddh")
+
+[node name="Camera2D" parent="." unique_id=2105488374 instance=ExtResource("3_cslo3")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1205397471]
+
+[node name="HUD" parent="CanvasLayer" unique_id=1730333443 instance=ExtResource("4_ledft")]
+
+[node name="Start" parent="CanvasLayer" unique_id=2032435944 instance=ExtResource("5_wibar")]
+
+[node name="htp" parent="CanvasLayer" unique_id=588420343 instance=ExtResource("6_xeddh")]
+
+[node name="setting" parent="CanvasLayer" unique_id=861424410 instance=ExtResource("7_qoy2r")]
+
+[node name="explosion" type="AnimatedSprite2D" parent="." unique_id=691585469]
+z_index = 2
+position = Vector2(315, 287)
+scale = Vector2(1.25, 1.321)
+sprite_frames = SubResource("SpriteFrames_5dg1o")
+animation = &"explosion"
+frame = 16
+frame_progress = 1.0
+speed_scale = 7.0
+
+[node name="sound" type="Node" parent="." unique_id=989203116]
+
+[node name="BlockClick" type="AudioStreamPlayer" parent="sound" unique_id=1243124019]
+stream = ExtResource("25_3aidc")
+bus = &"sfx"
+
+[node name="Click" type="AudioStreamPlayer" parent="sound" unique_id=2095864230]
+stream = ExtResource("26_x56po")
+bus = &"sfx"
+
+[node name="Destruction" type="AudioStreamPlayer" parent="sound" unique_id=1829863271]
+stream = ExtResource("27_d4qpd")
+bus = &"sfx"
+
+[node name="GameOver" type="AudioStreamPlayer" parent="sound" unique_id=2056075342]
+stream = ExtResource("28_5qkao")
+bus = &"sfx"
+
+[node name="LevelUp" type="AudioStreamPlayer" parent="sound" unique_id=254422807]
+stream = ExtResource("29_54pnl")
+bus = &"sfx"
+
+[node name="ZephiramusicLofiReel588906" type="AudioStreamPlayer" parent="sound" unique_id=827826856]
+stream = ExtResource("30_x56po")
+autoplay = true
+bus = &"music"

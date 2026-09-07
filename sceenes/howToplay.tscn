@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://di8bvoyvbsnt1"]
+
+[ext_resource type="FontFile" uid="uid://dedhfkns5m2rm" path="res://fonts/BitcountGridDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="1_wvtcl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqrfu"]
+bg_color = Color(0, 0, 0, 0.39215687)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okhi5"]
+bg_color = Color(2.117753e-06, 0.6909556, 0.35247147, 1)
+
+[node name="Control" type="Control" unique_id=588420343]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main_scr" type="Panel" parent="." unique_id=2048615053]
+z_index = 2
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 651.0
+offset_bottom = 546.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iqrfu")
+
+[node name="back_button" type="Button" parent="." unique_id=463120312]
+z_index = 2
+layout_mode = 0
+offset_left = 1.0
+offset_top = 300.0
+offset_right = 651.0
+offset_bottom = 358.0
+theme_override_fonts/font = ExtResource("1_wvtcl")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_okhi5")
+text = "Back"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=150330303]
+z_index = 2
+layout_mode = 0
+offset_left = 10.0
+offset_top = 22.0
+offset_right = 640.0
+offset_bottom = 275.0
+theme_override_fonts/normal_font = ExtResource("1_wvtcl")
+text = "How to Play
+
+Use the arrow keys to control your pieces:
+
+Left / Right — move the piece sideways
+Down — drop the piece faster
+Up — rotate the piece
+
+Pieces come in two colors:
+
+🔴 Red — normal pieces
+🟢 Green — fragile pieces
+
+The Rules:
+
+Each level has a piece counter — place all the pieces to advance to the next level
+If a green piece has more red pieces than green on its surface, it will break and you lose a life
+If pieces stack past the top of the board it's game over
+You have 3 lives — lose them all and it's game over
+After a level is finished you will get +1 life if you don't have the maximum of 3 lives"
+
+[node name="Groceris" type="Label" parent="." unique_id=1706696049]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 102.5
+offset_bottom = 251.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_wvtcl")
+theme_override_font_sizes/font_size = 30
+text = "Crumble
+Made by: Zentai
+Tetris base by: Coding with Russ
+Screen shake code by: Queble"
+horizontal_alignment = 1
+vertical_alignment = 1

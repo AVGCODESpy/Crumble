@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://sd5yaysdhbic"]
+
+[ext_resource type="Script" uid="uid://584i7kav66sp" path="res://code/settings.gd" id="1_nkug2"]
+[ext_resource type="FontFile" uid="uid://dedhfkns5m2rm" path="res://fonts/BitcountGridDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_nkug2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwo76"]
+bg_color = Color(0, 0.6901961, 0.3529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkug2"]
+bg_color = Color(2.117753e-06, 0.6909556, 0.35247147, 1)
+
+[node name="Control" type="Control" unique_id=861424410]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nkug2")
+
+[node name="main_scr" type="Panel" parent="." unique_id=1291072643]
+z_index = 3
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 651.0
+offset_bottom = 546.0
+
+[node name="setting" type="Label" parent="main_scr" unique_id=2053611922]
+z_index = 4
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -263.5
+offset_right = -1.0
+offset_bottom = -162.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nkug2")
+theme_override_font_sizes/font_size = 60
+text = "Settings:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="music_bg" type="Panel" parent="." unique_id=2039763895]
+z_index = 3
+layout_mode = 0
+offset_left = 1.0
+offset_top = 108.0
+offset_right = 651.0
+offset_bottom = 197.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jwo76")
+
+[node name="value" type="Label" parent="music_bg" unique_id=998329515]
+z_index = 4
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -42.5
+offset_right = -1.0
+offset_bottom = -7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nkug2")
+theme_override_font_sizes/font_size = 30
+text = "Music:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="music_val" type="HSlider" parent="music_bg" unique_id=528118192]
+z_index = 5
+layout_mode = 0
+offset_left = 124.0
+offset_top = 32.0
+offset_right = 524.0
+offset_bottom = 92.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="sfx_bg" type="Panel" parent="." unique_id=1423379526]
+z_index = 3
+layout_mode = 0
+offset_left = 2.0
+offset_top = 210.0
+offset_right = 652.0
+offset_bottom = 299.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jwo76")
+
+[node name="value2" type="Label" parent="sfx_bg" unique_id=2135757400]
+z_index = 4
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -42.5
+offset_right = -1.0
+offset_bottom = -7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nkug2")
+theme_override_font_sizes/font_size = 30
+text = "Sound effects:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfx_val" type="HSlider" parent="sfx_bg" unique_id=634687099]
+z_index = 5
+layout_mode = 0
+offset_left = 124.0
+offset_top = 32.0
+offset_right = 524.0
+offset_bottom = 92.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="screen_shake_bg" type="Panel" parent="." unique_id=908316232]
+z_index = 3
+layout_mode = 0
+offset_left = 2.0
+offset_top = 312.0
+offset_right = 320.0
+offset_bottom = 401.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jwo76")
+
+[node name="value2" type="Label" parent="screen_shake_bg" unique_id=779033571]
+z_index = 4
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -42.5
+offset_right = -1.0
+offset_bottom = -7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nkug2")
+theme_override_font_sizes/font_size = 30
+text = "screen shake:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="screen_shake" type="CheckButton" parent="screen_shake_bg" unique_id=1119418173]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -18.5
+offset_right = -23.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+button_pressed = true
+
+[node name="back_button" type="Button" parent="." unique_id=1620970281]
+z_index = 4
+layout_mode = 0
+offset_left = 1.0
+offset_top = 470.0
+offset_right = 651.0
+offset_bottom = 512.0
+theme_override_fonts/font = ExtResource("2_nkug2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nkug2")
+text = "Back"
+
+[node name="back_to_menu" type="Button" parent="." unique_id=1354873249]
+z_index = 5
+layout_mode = 0
+offset_top = 470.0
+offset_right = 318.0
+offset_bottom = 512.0
+theme_override_fonts/font = ExtResource("2_nkug2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nkug2")
+text = "Back to menu
+"
+
+[node name="quit" type="Button" parent="." unique_id=1537552363]
+z_index = 5
+layout_mode = 0
+offset_left = 332.0
+offset_top = 470.0
+offset_right = 650.0
+offset_bottom = 512.0
+theme_override_fonts/font = ExtResource("2_nkug2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nkug2")
+text = "Quit
+"
