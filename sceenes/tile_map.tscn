@@ -175,18 +175,24 @@ stream = ExtResource("28_5qkao")
 
 [node name="meme_click" type="AudioStreamPlayer" parent="meme_sound" unique_id=1393894234]
 stream = ExtResource("31_ktjy2")
+bus = &"sfx"
 
 [node name="meme_place" type="AudioStreamPlayer" parent="meme_sound" unique_id=1311451568]
 stream = ExtResource("32_bbnpk")
+bus = &"sfx"
 
 [node name="meme_break" type="AudioStreamPlayer" parent="meme_sound" unique_id=1541026674]
 stream = ExtResource("33_wkfvt")
+bus = &"sfx"
 
 [node name="meme_lvlUp" type="AudioStreamPlayer" parent="meme_sound" unique_id=105689300]
 stream = ExtResource("34_qgs7w")
+bus = &"sfx"
 
 [node name="loser" type="AudioStreamPlayer" parent="meme_sound" unique_id=297806415]
 stream = ExtResource("35_wkfvt")
+bus = &"sfx"
 
 [node name="eugh" type="AudioStreamPlayer" parent="meme_sound" unique_id=1057588896]
 stream = ExtResource("36_qgs7w")
+bus = &"sfx"

@@ -170,6 +170,7 @@ func setting():
 	$CanvasLayer/setting/main_scr.get_node("setting").text="Settings"
 	$CanvasLayer/setting/quit.hide()
 	$CanvasLayer/setting/back_to_menu.hide()
+	$CanvasLayer/setting/escape/setting.hide()
 	$CanvasLayer/setting/back_button.show()
 func new_game():
 	speed=1.0
@@ -474,9 +475,9 @@ func check_next_level():
 			init_board()
 			$CanvasLayer/HUD.get_node("score").text = "LEVEL: " + str(level+1)
 			level+=1
-			if not can_doof:
+			if can_doof:
 				lvlUp_sound.play()
-			elif can_doof:
+			elif not can_doof:
 				meme_lvlUp.play()
 			if lives!=3:
 				lives+=1
@@ -503,6 +504,7 @@ func paused_game():
 	$CanvasLayer/setting.visible = paused
 	$CanvasLayer/setting/main_scr.get_node("setting").text="Paused"
 	$CanvasLayer/setting/back_button.hide()
+	$CanvasLayer/setting/escape/setting.show()
 	$CanvasLayer/setting/quit.show()
 	$CanvasLayer/setting/back_to_menu.show()
 	if not paused:
