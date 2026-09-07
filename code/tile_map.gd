@@ -72,7 +72,7 @@ var max_piece_num=14
 var lives=3
 var can_sound:bool
 var can_shake:bool
-var can_doof:bool
+var can_doof:bool=false
 var paused=false
 var can_move_piece:bool
 
@@ -217,16 +217,10 @@ func _drag_ended(boolean):
 		click_sound.play()
 func is_on(boolean):
 	click_sound.play()
-	if not boolean:
-		can_shake=false
-	elif boolean:
-		can_shake=true
+	can_shake=boolean
 func doofus_on(boolean):
 	meme_eugh.play()
-	if not boolean:
-		can_doof=true
-	elif boolean:
-		can_doof=false
+	can_doof=boolean
 func pick_piece():
 	return shapes_full[randi() % shapes_full.size()]
 func create_piece():
@@ -257,17 +251,15 @@ func play_sfx(sound):
 		sound.play()
 	elif not can_doof:
 		if sound==explosion_sound:
-			sound=meme_break
+			meme_break.play()
+			
 		elif sound==landing_sound:
 			sound=meme_place
-		elif sound==lvlUp_sound:
-			sound=meme_lvlUp
 		elif sound==click_sound:
 			sound=meme_click
-		else:
-			sound=meme_loser
-		sound.pitch_scale=randf_range(0.8, 1.2)
-		sound.play()			
+		if sound!=meme_break:
+			sound.pitch_scale=randf_range(0.8, 1.2)
+			sound.play()			
 func shake_scrn(value):
 	if can_shake:
 		$Camera2D.add_trauma(value)
@@ -277,16 +269,16 @@ func load_data():
 		highest_lvl = file.get_var()
 		var music_volume = file.get_var()
 		var sfx_volume = file.get_var()
-		
-		var value=file.get_var()
-		if value!=null:
-			can_shake=value
+
+		var shake=file.get_var()
+		if shake!=null:
+			can_shake=shake
 		else:
 			can_shake=true
 			
-		value=file.get_var()
-		if value!=null:
-			can_doof=value
+		var doof=file.get_var()
+		if doof!=null:
+			can_doof=doof
 		else:
 			can_doof=false
 		file.close()
@@ -296,8 +288,11 @@ func load_data():
 		
 		$CanvasLayer/setting/music_bg/music_val.value = db_to_linear(music_volume)
 		$CanvasLayer/setting/sfx_bg/sfx_val.value = db_to_linear(sfx_volume)
+		
+		print("can_shake loaded: ", can_shake)
+		print("can_doof loaded: ", can_doof)
 		$CanvasLayer/setting/screen_shake_bg/screen_shake.button_pressed=can_shake
-		$CanvasLayer/setting/doofus_mode/doofus.button_pressed=can_doof
+		$CanvasLayer/setting/doofus_mode/doofus.button_pressed=not can_doof
 	else:
 		highest_lvl = 0
 		can_shake=true
@@ -479,7 +474,10 @@ func check_next_level():
 			init_board()
 			$CanvasLayer/HUD.get_node("score").text = "LEVEL: " + str(level+1)
 			level+=1
-			lvlUp_sound.play()
+			if not can_doof:
+				lvlUp_sound.play()
+			elif can_doof:
+				meme_lvlUp.play()
 			if lives!=3:
 				lives+=1
 				show_hearth()
@@ -492,7 +490,10 @@ func check_next_level():
 			land_piece()
 			save_data()
 			clear_board(true)
-			gameover_sound.play()
+			if can_doof:
+				gameover_sound.play()
+			elif not can_doof:
+				meme_loser.play()
 			$CanvasLayer/HUD.get_node("gameOver").show()
 			game_running=false
 func paused_game():

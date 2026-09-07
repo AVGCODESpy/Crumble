@@ -20,12 +20,6 @@ func _on_volume_changed(value):
 func _drag_ended(boolean):
 	drag_ended.emit(boolean)
 func _pressed(isOn):
-	if isOn:
-		ss_on.emit(isOn)
-	else:
-		ss_on.emit(isOn)
+	ss_on.emit(isOn)
 func _pressed_doofus(isOn):
-	if isOn:
-		doofus_mode_on.emit(isOn)
-	else:
-		doofus_mode_on.emit(isOn)
+	doofus_mode_on.emit(not isOn)
