@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cylj0y4aiogtr"
-path="res://.godot/imported/gameOver.wav-75b7e21b5836c5b8bbc0126c784ffa78.sample"
+uid="uid://bnlin5nvv26ed"
+path="res://.godot/imported/hitsound_2.wav-b580f1f8ecd269b726f587984352e8bb.sample"
 
 [deps]
 
-source_file="res://sound/gameOver.wav"
-dest_files=["res://.godot/imported/gameOver.wav-75b7e21b5836c5b8bbc0126c784ffa78.sample"]
+source_file="res://meme_sounds/hitsound_2.wav"
+dest_files=["res://.godot/imported/hitsound_2.wav-b580f1f8ecd269b726f587984352e8bb.sample"]
 
 [params]
 

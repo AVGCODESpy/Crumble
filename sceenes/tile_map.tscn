@@ -27,9 +27,15 @@
 [ext_resource type="AudioStream" uid="uid://fa4mytx4b74t" path="res://sound/block_click.wav" id="25_3aidc"]
 [ext_resource type="AudioStream" uid="uid://rgxruxvofj1s" path="res://sound/click.wav" id="26_x56po"]
 [ext_resource type="AudioStream" uid="uid://eljurfy8gbx1" path="res://sound/destruction.wav" id="27_d4qpd"]
-[ext_resource type="AudioStream" uid="uid://bwiiy3neesyn6" path="res://sound/gameOver.wav" id="28_5qkao"]
+[ext_resource type="AudioStream" uid="uid://cylj0y4aiogtr" path="res://sound/gameOver.wav" id="28_5qkao"]
 [ext_resource type="AudioStream" uid="uid://biufbmcdkmo14" path="res://sound/level_up.wav" id="29_54pnl"]
 [ext_resource type="AudioStream" uid="uid://cqcj1h3yvg3s1" path="res://sound/zephiramusic-lofi-reel-588906.ogg" id="30_x56po"]
+[ext_resource type="AudioStream" uid="uid://bnlin5nvv26ed" path="res://meme_sounds/hitsound_2.wav" id="31_ktjy2"]
+[ext_resource type="AudioStream" uid="uid://de8i54lfpy53x" path="res://meme_sounds/metal-pipe-sound.wav" id="32_bbnpk"]
+[ext_resource type="AudioStream" uid="uid://dc6l30pnbrqnh" path="res://meme_sounds/oh-no-our-table-its-broken.wav" id="33_wkfvt"]
+[ext_resource type="AudioStream" uid="uid://ge4ij1cx5lg7" path="res://meme_sounds/skyrim_level_up_sound_effect_free_downloadx1.wav" id="34_qgs7w"]
+[ext_resource type="AudioStream" uid="uid://2dw3ehmgg0rf" path="res://meme_sounds/golgothan-what-a-loser.wav" id="35_wkfvt"]
+[ext_resource type="AudioStream" uid="uid://bg4x556ikurlx" path="res://meme_sounds/tim-allen-grunt.wav" id="36_qgs7w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_25c7n"]
 texture = ExtResource("1_25c7n")
@@ -153,10 +159,6 @@ bus = &"sfx"
 stream = ExtResource("27_d4qpd")
 bus = &"sfx"
 
-[node name="GameOver" type="AudioStreamPlayer" parent="sound" unique_id=2056075342]
-stream = ExtResource("28_5qkao")
-bus = &"sfx"
-
 [node name="LevelUp" type="AudioStreamPlayer" parent="sound" unique_id=254422807]
 stream = ExtResource("29_54pnl")
 bus = &"sfx"
@@ -165,3 +167,26 @@ bus = &"sfx"
 stream = ExtResource("30_x56po")
 autoplay = true
 bus = &"music"
+
+[node name="GameOver" type="AudioStreamPlayer" parent="sound" unique_id=727715022]
+stream = ExtResource("28_5qkao")
+
+[node name="meme_sound" type="Node" parent="." unique_id=164955580]
+
+[node name="meme_click" type="AudioStreamPlayer" parent="meme_sound" unique_id=1393894234]
+stream = ExtResource("31_ktjy2")
+
+[node name="meme_place" type="AudioStreamPlayer" parent="meme_sound" unique_id=1311451568]
+stream = ExtResource("32_bbnpk")
+
+[node name="meme_break" type="AudioStreamPlayer" parent="meme_sound" unique_id=1541026674]
+stream = ExtResource("33_wkfvt")
+
+[node name="meme_lvlUp" type="AudioStreamPlayer" parent="meme_sound" unique_id=105689300]
+stream = ExtResource("34_qgs7w")
+
+[node name="loser" type="AudioStreamPlayer" parent="meme_sound" unique_id=297806415]
+stream = ExtResource("35_wkfvt")
+
+[node name="eugh" type="AudioStreamPlayer" parent="meme_sound" unique_id=1057588896]
+stream = ExtResource("36_qgs7w")

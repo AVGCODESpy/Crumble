@@ -72,6 +72,7 @@ var max_piece_num=14
 var lives=3
 var can_sound:bool
 var can_shake:bool
+var can_doof:bool
 var paused=false
 var can_move_piece:bool
 
@@ -93,6 +94,13 @@ const SAVE_PATH="user://save.save"
 @onready var click_sound=$sound/Click
 @onready var lvlUp_sound=$sound/LevelUp
 @onready var gameover_sound=$sound/GameOver
+
+@onready var meme_break=$meme_sound/meme_break
+@onready var meme_click=$meme_sound/meme_click
+@onready var meme_lvlUp=$meme_sound/meme_lvlUp
+@onready var meme_place=$meme_sound/meme_place
+@onready var meme_eugh=$meme_sound/eugh
+@onready var meme_loser=$meme_sound/loser
 
 func _ready() -> void:
 	randomize()
@@ -132,6 +140,7 @@ func _ready() -> void:
 	
 	$CanvasLayer/setting.drag_ended.connect(_drag_ended)
 	$CanvasLayer/setting.ss_on.connect(is_on)
+	$CanvasLayer/setting.doofus_mode_on.connect(doofus_on)
 	
 	$CanvasLayer/HUD.get_node("startButton").pressed.connect(func():
 		play_sfx(click_sound)
@@ -210,8 +219,14 @@ func is_on(boolean):
 	click_sound.play()
 	if not boolean:
 		can_shake=false
-	if boolean:
+	elif boolean:
 		can_shake=true
+func doofus_on(boolean):
+	meme_eugh.play()
+	if not boolean:
+		can_doof=true
+	elif boolean:
+		can_doof=false
 func pick_piece():
 	return shapes_full[randi() % shapes_full.size()]
 func create_piece():
@@ -237,8 +252,22 @@ func play_explosion(pos: Vector2i):
 	await explosion.animation_finished
 	explosion.hide()
 func play_sfx(sound):
-	sound.pitch_scale=randf_range(0.8, 1.2)
-	sound.play()
+	if can_doof:
+		sound.pitch_scale=randf_range(0.8, 1.2)
+		sound.play()
+	elif not can_doof:
+		if sound==explosion_sound:
+			sound=meme_break
+		elif sound==landing_sound:
+			sound=meme_place
+		elif sound==lvlUp_sound:
+			sound=meme_lvlUp
+		elif sound==click_sound:
+			sound=meme_click
+		else:
+			sound=meme_loser
+		sound.pitch_scale=randf_range(0.8, 1.2)
+		sound.play()			
 func shake_scrn(value):
 	if can_shake:
 		$Camera2D.add_trauma(value)
@@ -248,10 +277,18 @@ func load_data():
 		highest_lvl = file.get_var()
 		var music_volume = file.get_var()
 		var sfx_volume = file.get_var()
-		if not file.eof_reached():
-			can_shake=file.get_var()
+		
+		var value=file.get_var()
+		if value!=null:
+			can_shake=value
 		else:
 			can_shake=true
+			
+		value=file.get_var()
+		if value!=null:
+			can_doof=value
+		else:
+			can_doof=false
 		file.close()
 		
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), music_volume)
@@ -259,10 +296,12 @@ func load_data():
 		
 		$CanvasLayer/setting/music_bg/music_val.value = db_to_linear(music_volume)
 		$CanvasLayer/setting/sfx_bg/sfx_val.value = db_to_linear(sfx_volume)
-		$CanvasLayer/setting/screen_shake_bg/screen_shake.button_pressed = can_shake
+		$CanvasLayer/setting/screen_shake_bg/screen_shake.button_pressed=can_shake
+		$CanvasLayer/setting/doofus_mode/doofus.button_pressed=can_doof
 	else:
 		highest_lvl = 0
 		can_shake=true
+		can_doof=false
 func save_data():
 	if level>highest_lvl:
 		highest_lvl=level
@@ -271,6 +310,7 @@ func save_data():
 	file.store_var(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("music")))
 	file.store_var(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("sfx")))
 	file.store_var(can_shake)
+	file.store_var(can_doof)
 	file.close()
 func clear_piece():
 	for i in activePiece:
@@ -495,8 +535,7 @@ func all_green_explode_arbys_style(Gid):
 		for y in range(1,ROWS+1):
 			for x in range(1,COLS+1):
 				if board_data[y][x]!=null and board_data[y][x][0]==id:
-					play_explosion(Vector2i(x,y))
-			
+					play_explosion(Vector2i(x,y))			
 func apply_gravity(lowRow,id):
 	var offset=[]
 	var isGreen=false

@@ -128,9 +128,8 @@ value = 1.0
 [node name="screen_shake_bg" type="Panel" parent="." unique_id=908316232]
 z_index = 3
 layout_mode = 0
-offset_left = 2.0
 offset_top = 312.0
-offset_right = 320.0
+offset_right = 318.0
 offset_bottom = 401.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jwo76")
@@ -206,3 +205,53 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_nkug2")
 text = "Quit
 "
+
+[node name="doofus_mode" type="Panel" parent="." unique_id=1224313975]
+z_index = 3
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -318.0
+offset_top = 39.5
+offset_bottom = 128.5
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jwo76")
+
+[node name="value" type="Label" parent="doofus_mode" unique_id=728545256]
+z_index = 4
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -42.5
+offset_right = -1.0
+offset_bottom = -7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nkug2")
+theme_override_font_sizes/font_size = 30
+text = "Doofus mode:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="doofus" type="CheckButton" parent="doofus_mode" unique_id=632332365]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -18.5
+offset_right = -23.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
