@@ -66,7 +66,7 @@ var piece_id:int
 
 var level:int=0
 var game_running:bool
-var threshold:int=24
+var threshold:int=25
 var piece_number=0
 var max_piece_num=14
 var lives=3
@@ -75,6 +75,7 @@ var can_shake:bool
 var can_doof:bool=false
 var paused=false
 var can_move_piece:bool
+var can_move_piece_delay:bool=true
 
 var tile_id:int=0
 var pieceAtlas:Vector2i
@@ -327,6 +328,8 @@ func move_piece(dir):
 		draw_piece(activePiece, cur_pos, pieceAtlas)
 		
 		var deep=deepest_pos()
+		if not can_move_piece_delay:
+			can_move_piece=false
 		for cell in deep:
 			if cell.y+1>ROWS or board_data[cell.y+1][cell.x]!=null:
 				if pieceAtlas == Vector2i(0,0):
@@ -337,19 +340,19 @@ func move_piece(dir):
 						shake_scrn(0.5)
 						all_green_explode_arbys_style(greenID)
 						can_sound=false
-						can_move_piece=false
+						can_move_piece_delay=false
 						break
 					elif can_sound:
 						play_sfx(landing_sound)
 						shake_scrn(0.2)
 						can_sound=false
-						can_move_piece=false
+						can_move_piece_delay=false
 					break
 				elif can_sound:
 					play_sfx(landing_sound)
 					shake_scrn(0.2)
 					can_sound=false
-					can_move_piece=false
+					can_move_piece_delay=false
 					break
 	else:
 		if dir==Vector2i.DOWN:
@@ -361,6 +364,7 @@ func move_piece(dir):
 			clear_panel()
 			can_sound=true
 			can_move_piece=true
+			can_move_piece_delay=true
 			create_piece()
 			check_next_level()
 func can_move(dir):
@@ -482,11 +486,12 @@ func check_next_level():
 			if lives!=3:
 				lives+=1
 				show_hearth()
-			if level%5==0:
-				threshold+=5
+			if level%3==0:
+				if threshold<=50:
+					threshold+=5
+				speed+=0.2
 				if piece_number<=37:
 					max_piece_num+=5
-			return
 		elif get_cell_source_id(boardLayer, i + cur_pos)!=-1 or lives<=0:
 			land_piece()
 			save_data()
