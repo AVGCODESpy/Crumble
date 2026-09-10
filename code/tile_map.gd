@@ -230,7 +230,7 @@ func create_piece():
 	cur_pos=startPos
 	activePiece=piece_type[rotationIndex]
 	draw_piece(activePiece,cur_pos,pieceAtlas)
-	draw_piece(next_piece_type[0],Vector2i(15,4),next_piece_atlas)
+	draw_piece(next_piece_type[0],Vector2i(14,4),next_piece_atlas)
 func init_board():
 	piece_number=max_piece_num
 	$CanvasLayer/HUD.get_node("score").text = "LEVEL: " + str(level+1)

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dandvbpdej88"]
 
+[ext_resource type="FontFile" uid="uid://dedhfkns5m2rm" path="res://fonts/BitcountGridDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="1_gkur8"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2snw"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 5
@@ -20,18 +22,19 @@ anchors_preset = 0
 
 [node name="Panel" type="Panel" parent="." unique_id=232079937]
 layout_mode = 0
-offset_left = 425.0
-offset_top = 100.0
-offset_right = 625.0
-offset_bottom = 239.0
+offset_left = 405.0
+offset_top = 101.0
+offset_right = 605.0
+offset_bottom = 240.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_n2snw")
 
 [node name="display" type="Label" parent="." unique_id=1081014083]
 layout_mode = 0
-offset_left = 430.0
-offset_top = 50.0
-offset_right = 610.0
-offset_bottom = 95.0
+offset_left = 410.0
+offset_top = 51.0
+offset_right = 608.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("1_gkur8")
 theme_override_font_sizes/font_size = 30
 text = "Next Piece:"
 horizontal_alignment = 1
@@ -39,10 +42,11 @@ vertical_alignment = 1
 
 [node name="score" type="Label" parent="." unique_id=1577767291]
 layout_mode = 0
-offset_left = 435.0
-offset_top = 259.0
-offset_right = 615.0
-offset_bottom = 304.0
+offset_left = 415.0
+offset_top = 260.0
+offset_right = 595.0
+offset_bottom = 305.0
+theme_override_fonts/font = ExtResource("1_gkur8")
 theme_override_font_sizes/font_size = 30
 text = "Score: 0"
 horizontal_alignment = 1
@@ -50,11 +54,12 @@ vertical_alignment = 1
 
 [node name="piece_count" type="Label" parent="." unique_id=1597266052]
 layout_mode = 0
-offset_left = 425.0
-offset_top = 300.0
-offset_right = 625.0
-offset_bottom = 340.0
-theme_override_font_sizes/font_size = 25
+offset_left = 405.0
+offset_top = 301.0
+offset_right = 615.0
+offset_bottom = 341.0
+theme_override_fonts/font = ExtResource("1_gkur8")
+theme_override_font_sizes/font_size = 20
 text = "Pieces left: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -65,6 +70,7 @@ offset_left = 5.0
 offset_top = 180.0
 offset_right = 349.0
 offset_bottom = 263.0
+theme_override_fonts/font = ExtResource("1_gkur8")
 theme_override_font_sizes/font_size = 45
 text = "GAME OVER"
 horizontal_alignment = 1
@@ -72,10 +78,10 @@ vertical_alignment = 1
 
 [node name="startButton" type="Button" parent="." unique_id=756637295]
 layout_mode = 0
-offset_left = 444.0
-offset_top = 340.0
-offset_right = 610.0
-offset_bottom = 398.0
+offset_left = 424.0
+offset_top = 341.0
+offset_right = 590.0
+offset_bottom = 399.0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_37p78")
 text = "New Game"
@@ -83,10 +89,10 @@ text = "New Game"
 [node name="health_bar" type="Panel" parent="." unique_id=2045025107]
 z_index = 1
 layout_mode = 0
-offset_left = 423.0
-offset_top = 410.0
-offset_right = 627.0
-offset_bottom = 440.0
+offset_left = 403.0
+offset_top = 411.0
+offset_right = 607.0
+offset_bottom = 441.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_n2snw")
 
 [node name="health_bar2" type="Panel" parent="health_bar" unique_id=1545663410]
@@ -99,24 +105,24 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_n2snw")
 
 [node name="hearth" type="Panel" parent="." unique_id=1886301531]
 layout_mode = 0
-offset_left = 423.0
-offset_top = 410.0
-offset_right = 491.0
-offset_bottom = 440.0
+offset_left = 403.0
+offset_top = 411.0
+offset_right = 471.0
+offset_bottom = 441.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_64ctp")
 
 [node name="hearth2" type="Panel" parent="." unique_id=1684697825]
 layout_mode = 0
-offset_left = 491.0
-offset_top = 410.0
-offset_right = 559.0
-offset_bottom = 440.0
+offset_left = 471.0
+offset_top = 411.0
+offset_right = 539.0
+offset_bottom = 441.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_64ctp")
 
 [node name="hearth3" type="Panel" parent="." unique_id=393244457]
 layout_mode = 0
-offset_left = 559.0
-offset_top = 410.0
-offset_right = 627.0
-offset_bottom = 440.0
+offset_left = 539.0
+offset_top = 411.0
+offset_right = 607.0
+offset_bottom = 441.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_64ctp")

@@ -141,8 +141,6 @@ position = Vector2(315, 287)
 scale = Vector2(1.25, 1.321)
 sprite_frames = SubResource("SpriteFrames_5dg1o")
 animation = &"explosion"
-frame = 16
-frame_progress = 1.0
 speed_scale = 7.0
 
 [node name="sound" type="Node" parent="." unique_id=989203116]
